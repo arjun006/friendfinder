@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+    <head>
+        <title> Friend Finder </title>
+
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="../data/friends.js"></script>
+
+    </head>
+    <body>
+        <header>
+            <div class="row">
+                <div class="col-md-8">
+                    <h1>Personality Match Questionannaire</h1>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+<!-- Name and Image Form -->
+            <div class="row">
+                <div class="col-md-9">
+                        <form>
+                                <div class="form-group">
+                                  <label for="nameInput">Name</label>
+                                  <input type="text" class="form-control" id="nameInput" placeholder="Your Name">
+                                </div>
+                                <div class="form-group">
+                                  <label for="imageLink">Link to your photo!</label>
+                                  <input type="text" class="form-control" id="imageLink" placeholder="Link to a photo of you">
+                                </div>
+                              </form>
+                </div>
+            </div>
+<!-- Personality Questionnaire -->
+            <div class="row">
+                <div class="col-md-4">
+
+                        <div class="form-group mx-sm-3 mb-2">
+                                <label class="p-2"><h4>Question 1</h4></label>
+                                <p>You're always up to try new things</p>
+                                <select class="form-control" type="select" id="question1">
+                                  <option value="1">1 <em> - Strongly Disagree</em></option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5 <em> - Strongly Agree</em></option>
+                                </select>
+                            </div>
+                            <div class="form-group mx-sm-3 mb-2">
+                                    <label class="p-2"><h4>Question 2</h4></label>
+                                    <p>You are outgoing, and make an effort to meet to new people</p>
+                                    <select class="form-control" type="select" id="question2">
+                                      <option value="1">1 <em> - Strongly Disagree</em></option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5 <em> - Strongly Agree</em></option>
+                                    </select>
+                            </div>
+                            <div class="form-group mx-sm-3 mb-2">
+                                    <label class="p-2"><h4>Question 3</h4></label>
+                                    <p>You rarely become upset with people</p>
+                                    <select class="form-control" type="select" id="question3">
+                                      <option value="1">1 <em> - Strongly Disagree</em></option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5 <em> - Strongly Agree</em></option>
+                                    </select>
+                            </div>
+                            <div class="form-group mx-sm-3 mb-2">
+                                    <label class="p-2"><h4>Question 4</h4></label>
+                                    <p>You enjoy intellectual and contreversial conversations</p>
+                                    <select class="form-control" type="select" id="question4">
+                                      <option value="1">1 <em> - Strongly Disagree</em></option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5 <em> - Strongly Agree</em></option>
+                                    </select>
+                            </div>
+                            <div class="form-group mx-sm-3 mb-2">
+                                    <label class="p-2"><h4>Question 5</h4></label>
+                                    <select class="form-control" type="select" id="question5">
+                                      <option value="1">1 <em> - Strongly Disagree</em></option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5 <em> - Strongly Agree</em></option>
+                                    </select>
+                            </div>
+                            <div class="form-group mx-sm-3 mb-2">
+                                    <label class="p-2">Q6</label>
+                                    <select class="form-control" type="select" id="question6">
+                                      <option value="1">1 <em> - Strongly Disagree</em></option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5 <em> - Strongly Agree</em></option>
+                                    </select>
+                            </div>
+                            <div class="form-group mx-sm-3 mb-2">
+                                    <label class="p-2">Q7</label>
+                                    <select class="form-control" type="select" id="question7">
+                                      <option value="1">1 <em> - Strongly Disagree</em></option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5 <em> - Strongly Agree</em></option>
+                                    </select>
+                            </div>
+                            <div class="form-group mx-sm-3 mb-2">
+                                    <label class="p-2"><h4>Q8</h4></label>
+                                    <select class="form-control" type="select" id="question8">
+                                      <option value="1">1 <em> - Strongly Disagree</em></option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5 <em> - Strongly Agree</em></option>
+                                    </select>
+                            </div>
+                            <div class="form-group mx-sm-3 mb-2">
+                                    <label class="p-2">Q9</label>
+                                    <select class="form-control" type="select" id="question9">
+                                      <option value="1">1 <em> - Strongly Disagree</em></option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5 <em> - Strongly Agree</em></option>
+                                    </select>
+                            </div>
+                            <div class="form-group mx-sm-3 mb-2">
+                                    <label class="p-2">Q10</label>
+                                    <select class="form-control" type="select" id="question10">
+                                      <option value="1">1 <em> - Strongly Disagree</em></option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5 <em> - Strongly Agree</em></option>
+                                    </select>
+                            </div>
+
+                </div>
+
+            </div>    
+            <div class="row">
+                <div class="col-md-6">
+                        <button id="submitBtn" class="btn btn-primary" type="submit">Button</button>
+                </div>
+            </div>    
+        </div>
+                
+
+
+        
+
+    </body>
