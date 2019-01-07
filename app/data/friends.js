@@ -27,7 +27,7 @@ $(document).ready(function(){
     const friends = [
         {
         name:"Dwight Schrute",
-        image:'',
+        image:'http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-15.jpg',
         answers:[]
         },{
         name:"Pam Beesley",
