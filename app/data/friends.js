@@ -1,30 +1,6 @@
-$(document).ready(function(){
 
-    $("#submitBtn").on('click', function(event){
-        event.preventDefault();
-// Take user data inputs and store in variable
-        let userInput = {
-            name: $('#nameInput').val().trim(),
-            image: $("#imageLink").val().trim(),
-            answers: [
-                $('#question1').val().trim(),
-                $('#question2').val().trim(),
-                $('#question3').val().trim(),
-                $('#question4').val().trim(),
-                $('#question5').val().trim(),
-                $('#question6').val().trim(),
-                $('#question7').val().trim(),
-                $('#question8').val().trim(),
-                $('#question9').val().trim(),
-                $('#question10').val().trim(),
-            ]
-        };
-        console.log(userInput);
-    });
-
-// Permenant Friends array
-
-    const friends = [
+// Friends Array
+    var friends = [
         {
         name:"Dwight Schrute",
         image:'http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-15.jpg',
@@ -62,8 +38,6 @@ $(document).ready(function(){
         image:'',
         answers:[]
         }
-    ]
-    console.log(friends);
-    
-});
-module.export=friends;
+    ];
+
+    module.exports=friends;
