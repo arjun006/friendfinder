@@ -185,9 +185,6 @@
     </div>
 </body>
 
-
-</html>
-
 <script type="text/javascript">
 
     $("#submitBtn").on('click', function (event) {
@@ -253,7 +250,7 @@
                         listItem.append(
                             $("<h2>").text("userName" + (i + 1)),
                             $("<hr>"),
-                            $("<img>").attr("src",friends[i].image),
+                            $("<img>").attr("src", friends[i].image),
                             $("<h23>").text("Match %: "),
                         );
 
@@ -261,7 +258,10 @@
                     }
                 });
         }
-friendsMatch();
+        friendsMatch();
     });
 
 </script>
+
+
+</html>
