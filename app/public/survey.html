@@ -15,8 +15,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="../data/friends.js"></script>
-
 </head>
 
 <body>
@@ -24,7 +22,7 @@
     <header>
         <div class="row">
             <div class="col-md-8">
-                <h1>Personality Match Questionannaire</h1>
+                <h1>Friend Finder Questionnaire</h1>
             </div>
         </div>
     </header>
@@ -179,89 +177,74 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <button id="submitBtn" class="btn btn-primary" type="submit">Button</button>
+
+                <!-- Button trigger modal -->
+                <button id="submitBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    Find Friend
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Your Friend Match is...</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <img id="userPhoto" src="https://img.purch.com/w/660/aHR0cDovL3d3dy5zcGFjZS5jb20vaW1hZ2VzL2kvMDAwLzA2NC8zODkvb3JpZ2luYWwvUmFpbm5fV2lsc29uLmpwZw==" width="75px" height="75px">
+                                <h3 id="userMatch"></h3>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</body>
+    </div>
 
-<script type="text/javascript">
 
-    $("#submitBtn").on('click', function (event) {
-        event.preventDefault("");
-        // Take user data inputs and store in variable
-        let newUser = {
-            name: $('#nameInput').val(""),
-            image: $("#imageLink").val(""),
-            answers: [
-                $('#question1').val(""),
-                $('#question2').val(""),
-                $('#question3').val(""),
-                $('#question4').val(""),
-                $('#question5').val(""),
-                $('#question6').val(""),
-                $('#question7').val(""),
-                $('#question8').val(""),
-                $('#question9').val(""),
-                $('#question10').val(""),
-            ]
-        };
+    <script type="text/javascript">
 
-        $.post("/api/friends", newUser, function (data) {
+        $(document).ready(function (event) {
 
-            if (data) {
-                console.log("added new user to friends list");
-            } else {
-                console.log("user info not valid");
-            }
-
-            $('#nameInput').val(""),
-                $("#imageLink").val(""),
-                $('#question1').val(""),
-                $('#question2').val(""),
-                $('#question3').val(""),
-                $('#question4').val(""),
-                $('#question5').val(""),
-                $('#question6').val(""),
-                $('#question7').val(""),
-                $('#question8').val(""),
-                $('#question9').val(""),
-                $('#question10').val("")
+            $("#submitBtn").on("click", function (event) {
+                event.preventDefault();
+                var newUser = {
+                    name: $('#nameInput').val().trim(),
+                    photo: $('#imageLink').val().trim(),
+                    answers: [
+                        $('#question1').val().trim(),
+                        $('#question2').val().trim(),
+                        $('#question3').val().trim(),
+                        $('#question4').val().trim(),
+                        $('#question5').val().trim(),
+                        $('#question6').val().trim(),
+                        $('#question7').val().trim(),
+                        $('#question8').val().trim(),
+                        $('#question9').val().trim(),
+                        $('#question10').val().trim()
+                    ]
+                };
+                $.post('/api/friends', newUser, function (data) {
+                    $('#userMatch').text(data.name);
+                    $("#userPhoto").attr("src", data.photo);
+                    console.log(data);
+                });
+            });
 
         });
-        function friendsMatch() {
-            // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
-            $.ajax({ url: "/api/friends", method: "GET" })
-                .then(function (friends) {
 
-                    // Here we then log the tableData to console, where it will show up as an object.
-                    console.log(friends);
-                    console.log("------------------------------------");
 
-                    // Loop through and display each of the customers
-                    for (var i = 0; i < friends.length; i++) {
+    </script>
 
-                        // Get a reference to the tableList element and populate it with tables
-                        var friendsList = $("#friendsList");
-
-                        // Then display the fields in the HTML (Section Name, Date, URL)
-                        var user = $("<li class='user mt-4'>");
-
-                        listItem.append(
-                            $("<h2>").text("userName" + (i + 1)),
-                            $("<hr>"),
-                            $("<img>").attr("src", friends[i].image),
-                            $("<h23>").text("Match %: "),
-                        );
-
-                        friendsList.append(user);
-                    }
-                });
-        }
-        friendsMatch();
-    });
-
-</script>
-
+</body>
 
 </html>
