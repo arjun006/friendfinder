@@ -19,15 +19,14 @@
 
 <body>
 
-    <header>
-        <div class="row">
-            <div class="col-md-8">
-                <h1>Friend Finder Questionnaire</h1>
-            </div>
-        </div>
-    </header>
-
     <div class="container">
+        <header>
+            <div class="row">
+                <div class="col-md-8">
+                    <h1>Friend Finder Questionnaire</h1>
+                </div>
+            </div>
+        </header>
         <!-- Name and Image Form -->
         <div class="row">
             <div class="col-md-9">
@@ -45,7 +44,7 @@
         </div>
         <!-- Personality Questionnaire -->
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="form-group mx-sm-3 mb-2">
                     <label class="p-2">
                         <h4>Question 1</h4>
@@ -179,7 +178,7 @@
             <div class="col-md-6">
 
                 <!-- Button trigger modal -->
-                <button id="submitBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                <button id="submitBtn" type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                     Find Friend
                 </button>
 
@@ -195,12 +194,10 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <img id="userPhoto" src="https://img.purch.com/w/660/aHR0cDovL3d3dy5zcGFjZS5jb20vaW1hZ2VzL2kvMDAwLzA2NC8zODkvb3JpZ2luYWwvUmFpbm5fV2lsc29uLmpwZw==" width="75px" height="75px">
-                                <h3 id="userMatch"></h3>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <div>
+                                    <img id="userPhoto" width="250px" height="250px">
+                                    <h3 id="userMatch"></h3>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -235,9 +232,22 @@
                 };
                 $.post('/api/friends', newUser, function (data) {
                     $('#userMatch').text(data.name);
-                    $("#userPhoto").attr("src", data.photo);
+                    $("#userPhoto").attr("src", data.image);
                     console.log(data);
                 });
+                $('#nameInput').val("");
+                $("#imageLink").val("");
+                $('#question1').val("");
+                $('#question2').val("");
+                $('#question3').val("");
+                $('#question4').val("");
+                $('#question5').val("");
+                $('#question6').val("");
+                $('#question7').val("");
+                $('#question8').val("");
+                $('#question9').val("");
+                $('#question10').val("");
+
             });
 
         });
